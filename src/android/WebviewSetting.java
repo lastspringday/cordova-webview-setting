@@ -1,16 +1,12 @@
 package com.darktalker.cordova.webviewsetting;
 
-import org.apache.cordova.*;
+iimport org.apache.cordova.*;
 import org.apache.cordova.engine.*;
-import org.apache.cordova.CallbackContext;
 import org.json.JSONArray;
 import org.json.JSONException;
-
 import android.os.Build;
-
+import android.webkit.*;
 import android.util.Log;
-
-
 
 public class WebviewSetting extends CordovaPlugin {
     private CordovaWebView webView;
