@@ -27,7 +27,7 @@ public class WebviewSetting extends CordovaPlugin {
         if ("set".equals(action)) {
             cordova.getActivity().runOnUiThread(new Runnable() {
                 public void run() {
-                    WebView wv = webView.getEngine().getView();
+                    WebView wv = (WebView) webView.getEngine().getView();
                     wv.getSettings().setLoadWithOverviewMode(true);
                     wv.getSettings().setUseWideViewPort(true);
                     
