@@ -1,8 +1,7 @@
 package com.darktalker.cordova.webviewsetting;
 
-import org.apache.cordova.CordovaPlugin;
-import org.apache.cordova.CordovaWebView;
-import org.apache.cordova.CordovaInterface;
+import org.apache.cordova.*;
+import org.apache.cordova.engine.*;
 import org.apache.cordova.CallbackContext;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,7 +18,7 @@ public class WebviewSetting extends CordovaPlugin {
     @Override
     public void initialize(final CordovaInterface cordova, CordovaWebView webView) {
         Log.d(LOG_TAG, "set viewport");
-        this.webView =  webView.getEngine().getView();
+        this.webView =  webView;
         super.initialize(cordova, webView); 
         
     }
@@ -28,11 +27,12 @@ public class WebviewSetting extends CordovaPlugin {
         if ("set".equals(action)) {
             cordova.getActivity().runOnUiThread(new Runnable() {
                 public void run() {
-                    webView.getSettings().setLoadWithOverviewMode(true);
-                    webView.getSettings().setUseWideViewPort(true);
+                    WebView wv = webView.getEngine().getView();
+                    wv.getSettings().setLoadWithOverviewMode(true);
+                    wv.getSettings().setUseWideViewPort(true);
                     
                     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            	        webView.getSettings().setMediaPlaybackRequiresUserGesture(false);
+            	        wv.getSettings().setMediaPlaybackRequiresUserGesture(false);
             	
             	        Log.d(LOG_TAG, "setMediaPlaybackRequiresUserGesture: FALSE");
                     }
