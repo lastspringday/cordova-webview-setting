@@ -1,6 +1,6 @@
 package com.darktalker.cordova.webviewsetting;
 
-iimport org.apache.cordova.*;
+import org.apache.cordova.*;
 import org.apache.cordova.engine.*;
 import org.json.JSONArray;
 import org.json.JSONException;
